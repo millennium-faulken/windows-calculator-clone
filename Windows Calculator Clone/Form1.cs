@@ -16,6 +16,7 @@ namespace Windows_Calculator_Clone
         Double value = 0;
         String operation = "";
         bool operator_clicked = false;
+        bool equals_clicked = false;
         String num_1, num_2;
 
         public Form1()
@@ -25,16 +26,14 @@ namespace Windows_Calculator_Clone
 
         private void num_Click(object sender, EventArgs e)
         {
-            if ((result.Text == "0") || (operator_clicked))
+            if ((result.Text == "0") || (operator_clicked) || (equals_clicked))
             {
                 result.Text = "";
                 operator_clicked = false;
-            }
-            else if ((result.Text != "0") || (operator_clicked == false))
-            {
-                result.Text = "";
+                equals_clicked = false;
             }
             
+
             Button num = (Button)sender;
 
             if (num.Text == ".")
@@ -76,16 +75,16 @@ namespace Windows_Calculator_Clone
             switch (operation)
             {
                 case "+":
-                    result.Text = (value + Double.Parse(result.Text)).ToString();
+                    result.Text = (value + Double.Parse(result.Text)).ToString("N0");
                     break;
                 case "−":
-                    result.Text = (value - Double.Parse(result.Text)).ToString();
+                    result.Text = (value - Double.Parse(result.Text)).ToString("N0");
                     break;
                 case "×":
-                    result.Text = (value * Double.Parse(result.Text)).ToString();
+                    result.Text = (value * Double.Parse(result.Text)).ToString("N0");
                     break;
                 case "÷":
-                    result.Text = (value / Double.Parse(result.Text)).ToString();
+                    result.Text = (value / Double.Parse(result.Text)).ToString("N0");
                     break;
                 default:
                     break;
@@ -100,6 +99,8 @@ namespace Windows_Calculator_Clone
             history_Box.SelectionAlignment = HorizontalAlignment.Right;
             history_Box.DeselectAll();
             no_History.Text = "";
+            equals_clicked = true;
+            equation_show.Text = num_1 + " " + num_2 + " = " + "\n";
         }
 
         private void clearAll_Click(object sender, EventArgs e)

@@ -536,12 +536,13 @@
             this.Controls.Add(this.zero);
             this.Controls.Add(this.point);
             this.Controls.Add(this.neg);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(569, 685);
             this.MinimumSize = new System.Drawing.Size(569, 685);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Calculator";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
