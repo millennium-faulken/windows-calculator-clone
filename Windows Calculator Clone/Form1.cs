@@ -31,7 +31,8 @@ namespace Windows_Calculator_Clone
                 result.Text = "";
                 operator_clicked = false;
                 equals_clicked = false;
-            }
+            } 
+
             
 
             Button num = (Button)sender;
